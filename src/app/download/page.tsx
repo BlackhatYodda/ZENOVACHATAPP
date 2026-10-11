@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { StoreButton } from "@/components/StoreButtons";
-import { listDevices, livePlatforms, platforms, site } from "@/lib/site";
+import { apkDownloadUrl, listDevices, livePlatforms, platforms, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Download",
@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 
 const notes: Record<string, string> = {
   android: "Android 8.0 or later. Updates install automatically from the store.",
+  apk: "No Google Play? Download the app file directly. Always the latest version.",
   ios: "For iPhone and iPad.",
   web: "Use Zenova in Chrome, Edge, Safari or Firefox on your computer. No install needed.",
   huawei: "For Huawei phones without Google Play.",
@@ -62,8 +63,16 @@ export default function DownloadPage() {
         ))}
       </ol>
 
+      <h2 className="mt-24 text-[1.75rem] font-semibold tracking-[-0.025em]">Installing the APK</h2>
+      <ol className="mt-6 max-w-[64ch] list-decimal space-y-2 pl-5 text-[15px] leading-relaxed text-slate">
+        <li>Tap <a href={apkDownloadUrl} className="font-medium text-ink underline underline-offset-4">Download APK</a> on your Android phone.</li>
+        <li>Open the downloaded file. If Android asks, allow your browser to install unknown apps.</li>
+        <li>Tap Install, then open {site.name}.</li>
+        <li>To update, download again from this page and install over the old version.</li>
+      </ol>
+
       <p className="mt-16 max-w-[64ch] rounded-2xl bg-sunken p-6 text-[15px] leading-relaxed text-slate">
-        <strong className="font-semibold text-ink">Only install {site.name} from the stores linked on this page.</strong>{" "}
+        <strong className="font-semibold text-ink">Only install {site.name} from the stores or the APK link on this page.</strong>{" "}
         Copies from file-sharing sites or unofficial stores may be modified and unsafe.
       </p>
     </main>

@@ -30,7 +30,14 @@ export const site = {
   ],
 } as const;
 
-export type PlatformId = "android" | "ios" | "web" | "huawei" | "samsung";
+/**
+ * Direct Android download. GitHub serves the asset named zenova.apk from the
+ * latest release, so publishing a new release updates this link.
+ */
+export const apkDownloadUrl =
+  "https://github.com/BlackhatYodda/Zenova_Frontend/releases/latest/download/zenova.apk";
+
+export type PlatformId = "android" | "apk" | "ios" | "web" | "huawei" | "samsung";
 
 export type Platform = {
   id: PlatformId;
@@ -53,6 +60,14 @@ export const platforms: Platform[] = [
     store: "Google Play",
     verb: "Get it on",
     url: "https://play.google.com/store/apps/details?id=com.zenova.zenova",
+  },
+  {
+    id: "apk",
+    device: "Android (direct download)",
+    store: "Download APK",
+    verb: "Or get the",
+    // Permanent link: always the newest GitHub release asset named zenova.apk.
+    url: apkDownloadUrl,
   },
   {
     id: "ios",
@@ -93,7 +108,8 @@ export const upcomingPlatforms = platforms.filter((p) => p.url === null);
 
 /** "Android, iPhone and iPad and Web" style list, joined naturally. */
 export function listDevices(list: Platform[]): string {
-  const names = list.map((p) => (p.id === "web" ? "the web" : p.device));
+  // The APK is another way to get the Android app, not another device.
+  const names = list.filter((p) => p.id !== "apk").map((p) => (p.id === "web" ? "the web" : p.device));
   if (names.length <= 1) return names.join("");
   return `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
 }
@@ -123,7 +139,8 @@ export const planLimits = [
   { label: "Videos", free: 16 * MB, pro: 2 * GB },
   { label: "Voice and audio", free: 50 * MB, pro: 500 * MB },
   { label: "Files and documents", free: 25 * MB, pro: 2 * GB },
-  { label: "Daily upload total", free: 5 * GB, pro: 50 * GB },
+  { label: "Daily upload total", free: 500 * MB, pro: 20 * GB },
+  { label: "Upload total per 30 days", free: 5 * GB, pro: 100 * GB },
 ] as const;
 
 export function formatBytes(bytes: number): string {
