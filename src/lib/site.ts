@@ -5,17 +5,17 @@ export const site = {
   name: "Zenova",
   // TODO: confirm the legal name of the business that publishes the app.
   company: "Zenova Labs",
-  url: "https://zenova.app",
+  url: "https://zenovachat.com",
   tagline: "Chat, call and share with the people who matter.",
   description:
     "Zenova is a messaging app for private chats, groups, channels, voice and video calls, media sharing and live location.",
-  packageId: "com.zenova.zenova",
+  packageId: "com.chat.zenova",
   // TODO: replace with a monitored support inbox.
-  supportEmail: "support@zenova.app",
+  supportEmail: "support@zenovachat.com",
   // TODO: replace with a monitored inbox for privacy and data requests.
-  privacyEmail: "privacy@zenova.app",
+  privacyEmail: "privacy@zenovachat.com",
   // TODO: replace with the inbox that handles child-safety reports.
-  safetyEmail: "safety@zenova.app",
+  safetyEmail: "safety@zenovachat.com",
   // TODO: confirm the country whose law governs the Terms.
   jurisdiction: "Nepal",
   legalUpdated: "9 October 2026",
@@ -59,7 +59,7 @@ export const platforms: Platform[] = [
     device: "Android",
     store: "Google Play",
     verb: "Get it on",
-    url: "https://play.google.com/store/apps/details?id=com.zenova.zenova",
+    url: "https://play.google.com/store/apps/details?id=com.chat.zenova",
   },
   {
     id: "apk",
@@ -82,7 +82,7 @@ export const platforms: Platform[] = [
     device: "Web",
     store: "Open in browser",
     verb: "Use it on the",
-    // TODO: web app address, e.g. https://web.zenova.app
+    // TODO: web app address, e.g. https://web.zenovachat.com
     url: null,
   },
   {

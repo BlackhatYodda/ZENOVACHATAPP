@@ -3,7 +3,7 @@ import Image from "next/image";
 import { StoreButtons } from "@/components/StoreButtons";
 import { site } from "@/lib/site";
 
-// Profile QR codes in the app encode https://zenova.app/user/<uid>. With the
+// Profile QR codes in the app encode https://zenovachat.com/user/<uid> (older ones https://zenova.app/user/<uid>). With the
 // app installed, the phone opens the profile in the app; otherwise this page
 // asks the visitor to install it. No profile data is looked up or shown here.
 export const metadata: Metadata = {
