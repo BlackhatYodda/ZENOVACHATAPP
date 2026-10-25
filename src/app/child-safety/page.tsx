@@ -31,7 +31,7 @@ export default function ChildSafetyPage() {
 
       <h2>What happens after a report</h2>
       <p>
-        Our team reviews child-safety reports as a priority. We may remove content, suspend or ban accounts, preserve evidence and report to authorities. One-to-one text messages are end-to-end encrypted, so we rely on user reports, including messages a reporter chooses to share with us, and on account and group information we can access.
+        Our team reviews child-safety reports as a priority. We may remove content, suspend or ban accounts, preserve evidence and report to authorities. The text of one-to-one messages is encrypted on the sender&apos;s phone, so we rely on user reports, including messages a reporter chooses to share with us, and on account and group information we can access.
       </p>
 
       <h2>Compliance</h2>

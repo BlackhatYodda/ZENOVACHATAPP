@@ -51,7 +51,7 @@ export default function TermsPage() {
 
       <h2>5. Safety and enforcement</h2>
       <p>
-        You can block and report people in the app. We review reports and may remove content, limit features, or suspend or remove accounts that break these Terms or put others at risk. Because one-to-one text messages are end-to-end encrypted, we may rely on reports, including the reported messages that you choose to forward to us, to act on them. Where the law requires it, or to protect someone&apos;s safety, we may share information with law enforcement.
+        You can block and report people in the app. We review reports and may remove content, limit features, or suspend or remove accounts that break these Terms or put others at risk. Because the text of one-to-one messages is encrypted on the sender&apos;s phone, we may rely on reports, including the reported messages that you choose to forward to us, to act on them. Where the law requires it, or to protect someone&apos;s safety, we may share information with law enforcement.
       </p>
 
       <h2>6. Zenova Pro</h2>

@@ -8,7 +8,7 @@ export const site = {
   url: "https://zenovachat.com",
   tagline: "Chat, call and share with the people who matter.",
   description:
-    "Zenova is a messaging app for private chats, groups, channels, voice and video calls, media sharing and live location.",
+    "Zenova is a messaging app for one-to-one chats, groups, channels, voice and video calls, media sharing and live location.",
   packageId: "com.chat.zenova",
   // TODO: replace with a monitored support inbox.
   supportEmail: "support@zenovachat.com",
@@ -18,7 +18,7 @@ export const site = {
   safetyEmail: "safety@zenovachat.com",
   // TODO: confirm the country whose law governs the Terms.
   jurisdiction: "Nepal",
-  legalUpdated: "9 October 2026",
+  legalUpdated: "25 October 2026",
   languages: [
     "English",
     "नेपाली (Nepali)",

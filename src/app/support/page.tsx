@@ -14,7 +14,7 @@ const topics = [
   },
   {
     title: "My messages show as unreadable on a new phone",
-    body: "One-to-one messages are end-to-end encrypted. Restore your keys with your recovery code or PIN when you sign in. Without them, older encrypted messages cannot be read on the new phone.",
+    body: "Text in one-to-one chats is encrypted on your phone with keys that stay on your devices. Restore your keys with your recovery code or PIN when you sign in. Without them, older encrypted messages cannot be read on the new phone.",
   },
   {
     title: "Calls don't ring when the app is closed",

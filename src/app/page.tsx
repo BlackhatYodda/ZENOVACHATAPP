@@ -7,7 +7,7 @@ import { formatBytes, listDevices, livePlatforms, planLimits, platforms, site } 
 const features: { icon: IconName; title: string; body: string }[] = [
   {
     icon: "chat",
-    title: "Private chats",
+    title: "One-to-one chats",
     body: "Replies, reactions, edits and read receipts. People you don't know land in message requests, not your inbox.",
   },
   {
@@ -229,7 +229,7 @@ function Security() {
           <div>
             <SectionHeading
               title="Plain answers about your privacy."
-              body="We say exactly what is end-to-end encrypted and what is not, so you can decide what to share. We don't show ads and we don't sell your data."
+              body="We say exactly what is encrypted on your phone and what is only encrypted on the way to our servers, so you can decide what to share. We don't show ads and we don't sell your data."
             />
             <Link href="/privacy" className="mt-8 inline-block text-[15px] font-medium underline decoration-line decoration-2 underline-offset-[6px] transition-colors hover:decoration-brand">
               Read the Privacy Policy
@@ -242,8 +242,8 @@ function Security() {
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-soft text-brand">
                   <Icon name="lock" className="h-5 w-5" />
                 </span>
-                <h3 className="mt-5 text-[1.0625rem] font-semibold">End-to-end encrypted</h3>
-                <p className="mt-2 text-[14px] leading-relaxed text-slate">Encrypted on your phone. Only you and the person you&apos;re talking to can read it.</p>
+                <h3 className="mt-5 text-[1.0625rem] font-semibold">Encrypted on your phone</h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-slate">Encrypted before it is sent, with keys that stay on your devices.</p>
                 <ul className="mt-6 space-y-3 text-[15px]">
                   {e2e.map((t) => (
                     <li key={t} className="flex gap-3"><Icon name="check" className="mt-0.5 h-5 w-5 shrink-0 text-brand" />{t}</li>

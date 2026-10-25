@@ -46,7 +46,7 @@ export default function PrivacyPage() {
 
       <h2>3. How your messages are protected</h2>
       <ul>
-        <li><strong>One-to-one text messages</strong> are end-to-end encrypted. They are encrypted on your device before sending and can be decrypted only on your and the recipient&apos;s devices. We cannot read them.</li>
+        <li><strong>Text in one-to-one chats</strong> (including scheduled messages) is encrypted on your phone before it is sent, with keys that stay on your devices. Our servers store and relay the encrypted text. Photos, videos, files, voice notes and calls in one-to-one chats are covered by the next point.</li>
         <li><strong>Group and channel messages, photos, videos, files, voice notes and calls</strong> are encrypted in transit between your device and our servers, and are stored with access controls so that only members of the chat can open them. They are <strong>not</strong> end-to-end encrypted today, which means our systems can technically access them. We only do so when needed to run the service, keep it safe, or meet a legal obligation.</li>
         <li><strong>Encryption key backup.</strong> Your encryption keys are backed up in encrypted form so you can restore your chats on a new phone with your recovery code or the PIN you set. Keep them safe: we cannot recover them for you, and after too many wrong PIN attempts the PIN is removed.</li>
       </ul>
@@ -113,7 +113,7 @@ export default function PrivacyPage() {
 
       <h2>10. Security</h2>
       <p>
-        We use encryption in transit, end-to-end encryption for one-to-one text messages, access controls, app integrity checks and monitoring to protect your information. No system is perfectly secure, so please protect your phone and turn on app lock and two-step verification.
+        We use encryption in transit, on-device encryption of one-to-one message text, access controls, app integrity checks and monitoring to protect your information. No system is perfectly secure, so please protect your phone and turn on app lock and two-step verification.
       </p>
 
       <h2>11. This website and the web app</h2>

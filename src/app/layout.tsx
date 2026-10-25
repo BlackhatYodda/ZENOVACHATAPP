@@ -20,7 +20,7 @@ const instrument = Instrument_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name}: private chats, groups and calls`,
+    default: `${site.name}: chats, groups and calls`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    title: `${site.name}: private chats, groups and calls`,
+    title: `${site.name}: chats, groups and calls`,
     description: site.description,
     url: site.url,
     images: [{ url: "/logo.png", width: 1024, height: 1024, alt: site.name }],
