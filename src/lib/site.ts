@@ -42,14 +42,16 @@ export const playEarlyAccess = true;
  * has the same signature as Play installs and people can switch either way.
  * To update: upload the new file to downloads/zenova.apk and edit apkRelease.
  */
-export const apkDownloadUrl = "https://media.zenovachat.com/downloads/zenova.apk";
-
 export const apkRelease = {
   version: "1.0.1",
   size: "201 MB",
   minAndroid: "Android 8.0",
   sha256: "95a534718f116b5a0e7fd1133ca840a6f3fbcbadf71785793b91135b925d002c",
 } as const;
+
+// The version in the query gives each release its own URL, so a browser or
+// edge copy of an older file (or of a 404) is never served for a new one.
+export const apkDownloadUrl = `https://media.zenovachat.com/downloads/zenova.apk?v=${apkRelease.version}`;
 
 export type PlatformId = "android" | "apk" | "ios" | "web" | "huawei" | "samsung";
 
