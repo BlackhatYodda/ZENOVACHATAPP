@@ -22,7 +22,7 @@ const topics = [
   },
   {
     title: "A file is too large to send",
-    body: "Free accounts can send photos up to 5 MB, videos up to 16 MB and files up to 25 MB. Zenova Pro raises these limits.",
+    body: "Free accounts can send photos up to 5 MB, videos up to 25 MB and files up to 25 MB. Zenova Pro raises these limits.",
   },
   {
     title: "Someone is bothering me",
