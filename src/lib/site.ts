@@ -136,7 +136,7 @@ const GB = 1024 * MB;
 // backend/cmd/core/plan_limits.go.
 export const planLimits = [
   { label: "Photos", free: 5 * MB, pro: 50 * MB },
-  { label: "Videos", free: 16 * MB, pro: 2 * GB },
+  { label: "Videos", free: 25 * MB, pro: 2 * GB },
   { label: "Voice and audio", free: 50 * MB, pro: 500 * MB },
   { label: "Files and documents", free: 25 * MB, pro: 2 * GB },
   { label: "Daily upload total", free: 500 * MB, pro: 20 * GB },
