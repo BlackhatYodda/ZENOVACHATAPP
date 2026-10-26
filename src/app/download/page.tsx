@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Poster } from "@/components/Poster";
 import { StoreButton } from "@/components/StoreButtons";
-import { apkDownloadUrl, listDevices, livePlatforms, platforms, site } from "@/lib/site";
+import { banner, screenshots, type Screenshot } from "@/lib/screenshots";
+import { apkDownloadUrl, apkRelease, listDevices, livePlatforms, platforms, playEarlyAccess, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Download",
@@ -9,8 +11,10 @@ export const metadata: Metadata = {
 };
 
 const notes: Record<string, string> = {
-  android: "Android 8.0 or later. Updates install automatically from the store.",
-  apk: "No Google Play? Download the app file directly. Always the latest version.",
+  android: playEarlyAccess
+    ? "Now in early access on Google Play. The public listing opens soon; until then, use the APK below."
+    : `${apkRelease.minAndroid} or later. Updates install automatically from the store.`,
+  apk: `Version ${apkRelease.version}, ${apkRelease.size}. The same app and signature as Google Play, so you can move to Play updates later without reinstalling.`,
   ios: "For iPhone and iPad.",
   web: "Use Zenova in Chrome, Edge, Safari or Firefox on your computer. No install needed.",
   huawei: "For Huawei phones without Google Play.",
@@ -52,6 +56,18 @@ export default function DownloadPage() {
         ))}
       </ul>
 
+      <section className="mt-24">
+        <h2 className="text-[1.75rem] font-semibold tracking-[-0.025em]">A look inside {site.name}</h2>
+        <Poster shot={banner} sizes="(max-width: 1152px) 100vw, 1152px" className="mt-8" />
+        <ul className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {([screenshots.welcome, screenshots.allChats, screenshots.themes] as Screenshot[]).map((shot) => (
+            <li key={shot.src}>
+              <Poster shot={shot} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px" />
+            </li>
+          ))}
+        </ul>
+      </section>
+
       <h2 className="mt-24 text-[1.75rem] font-semibold tracking-[-0.025em]">Set up in a minute</h2>
       <ol className="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
         {steps.map(([title, body], i) => (
@@ -68,8 +84,14 @@ export default function DownloadPage() {
         <li>Tap <a href={apkDownloadUrl} className="font-medium text-ink underline underline-offset-4">Download APK</a> on your Android phone.</li>
         <li>Open the downloaded file. If Android asks, allow your browser to install unknown apps.</li>
         <li>Tap Install, then open {site.name}.</li>
-        <li>To update, download again from this page and install over the old version.</li>
+        <li>To update, download again from this page and install over the old version, or install {site.name} from Google Play. Your chats stay.</li>
       </ol>
+      <dl className="mt-8 grid max-w-[64ch] gap-x-6 gap-y-2 text-[14px] text-slate sm:grid-cols-[auto_1fr]">
+        <dt className="font-medium text-ink">Version</dt>
+        <dd>{apkRelease.version} ({apkRelease.size}, {apkRelease.minAndroid} or later)</dd>
+        <dt className="font-medium text-ink">SHA-256</dt>
+        <dd className="break-all font-mono text-[13px]">{apkRelease.sha256}</dd>
+      </dl>
 
       <p className="mt-16 max-w-[64ch] rounded-2xl bg-sunken p-6 text-[15px] leading-relaxed text-slate">
         <strong className="font-semibold text-ink">Only install {site.name} from the stores or the APK link on this page.</strong>{" "}

@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { Icon, type IconName } from "@/components/Icon";
 import { CallMock, PhoneMock } from "@/components/PhoneMock";
+import { Poster } from "@/components/Poster";
 import { StoreButtons } from "@/components/StoreButtons";
-import { formatBytes, listDevices, livePlatforms, planLimits, platforms, site } from "@/lib/site";
+import { banner, screenshots, type Screenshot } from "@/lib/screenshots";
+import { formatBytes, listDevices, livePlatforms, planLimits, platforms, playEarlyAccess, site } from "@/lib/site";
 
 const features: { icon: IconName; title: string; body: string }[] = [
   {
@@ -79,6 +81,7 @@ export default function Home() {
     <main>
       <Hero />
       <Features />
+      <Showcase />
       <Calls />
       <Security />
       <Pro />
@@ -102,6 +105,7 @@ function Hero() {
           <StoreButtons className="mt-10" />
           <p className="mt-6 text-[14px] text-slate">
             Free to use. Sign in with your phone number.{" "}
+            {playEarlyAccess && <>Early access on Google Play; the APK works on any Android phone now.{" "}</>}
             <Link href="/download" className="font-medium text-ink underline decoration-line decoration-2 underline-offset-4 transition-colors hover:decoration-brand">
               All platforms
             </Link>
@@ -183,6 +187,29 @@ function Features() {
   );
 }
 
+// Real screens from /public/screenshots, shown in a banner plus a grid.
+function Showcase() {
+  const gallery: Screenshot[] = [screenshots.allChats, screenshots.connected, screenshots.spaces, screenshots.themes];
+  return (
+    <section className="px-4 py-24 sm:px-6">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading
+          title="This is Zenova."
+          body="Real screens from the app — your chats, groups and themes, in light and dark."
+        />
+        <Poster shot={banner} sizes="(max-width: 1152px) 100vw, 1152px" className="mt-10" />
+        <ul className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {gallery.map((shot) => (
+            <li key={shot.src}>
+              <Poster shot={shot} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 276px" />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 function Calls() {
   return (
     <section className="px-4 py-24 sm:px-6">
@@ -234,6 +261,9 @@ function Security() {
             <Link href="/privacy" className="mt-8 inline-block text-[15px] font-medium underline decoration-line decoration-2 underline-offset-[6px] transition-colors hover:decoration-brand">
               Read the Privacy Policy
             </Link>
+            <div className="mt-10 hidden lg:block">
+              <Poster shot={screenshots.welcome} sizes="(max-width: 1024px) 100vw, 380px" />
+            </div>
           </div>
 
           <div>
@@ -288,10 +318,15 @@ function Pro() {
   return (
     <section id="pro" className="scroll-mt-20 bg-sunken">
       <div className="mx-auto grid max-w-6xl gap-14 px-4 py-24 sm:px-6 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
-        <SectionHeading
-          title="Free to use. Pro when files get big."
-          body="Messages and calls cost nothing. Zenova Pro is an optional subscription, billed by the app store you installed from, that raises upload limits. You'll see the price in the app before you buy."
-        />
+        <div>
+          <SectionHeading
+            title="Free to use. Pro when files get big."
+            body="Messages and calls cost nothing. Zenova Pro is an optional subscription, billed by the app store you installed from, that raises upload limits. You'll see the price in the app before you buy."
+          />
+          <div className="mt-10 hidden lg:block">
+            <Poster shot={screenshots.pro} sizes="(max-width: 1024px) 100vw, 380px" />
+          </div>
+        </div>
         <div className="overflow-x-auto rounded-3xl border border-line bg-surface px-6 pt-5 pb-2 shadow-soft sm:px-8">
           <table className="w-full min-w-[400px] text-left">
             <caption className="sr-only">Largest upload size on each plan</caption>

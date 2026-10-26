@@ -3,6 +3,7 @@ import { Instrument_Sans, Inter } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { themeScript } from "@/components/ThemeToggle";
+import { banner } from "@/lib/screenshots";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -31,13 +32,13 @@ export const metadata: Metadata = {
     title: `${site.name}: chats, groups and calls`,
     description: site.description,
     url: site.url,
-    images: [{ url: "/logo.png", width: 1024, height: 1024, alt: site.name }],
+    images: [{ url: banner.src, width: banner.width, height: banner.height, alt: banner.alt }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: site.name,
     description: site.description,
-    images: ["/logo.png"],
+    images: [banner.src],
   },
   other: { "google-play-app": `app-id=${site.packageId}` },
 };

@@ -31,11 +31,25 @@ export const site = {
 } as const;
 
 /**
- * Direct Android download. GitHub serves the asset named zenova.apk from the
- * latest release, so publishing a new release updates this link.
+ * Google Play listing is in closed testing (invited testers only) until
+ * production approval. Set to false once the public listing is live.
  */
-export const apkDownloadUrl =
-  "https://github.com/BlackhatYodda/Zenova_Frontend/releases/latest/download/zenova.apk";
+export const playEarlyAccess = true;
+
+/**
+ * Direct Android download, hosted on R2 behind the media domain. It is the
+ * Play-signed universal APK from Play Console (App bundle explorer), so it
+ * has the same signature as Play installs and people can switch either way.
+ * To update: upload the new file to downloads/zenova.apk and edit apkRelease.
+ */
+export const apkDownloadUrl = "https://media.zenovachat.com/downloads/zenova.apk";
+
+export const apkRelease = {
+  version: "1.0.1",
+  size: "201 MB",
+  minAndroid: "Android 8.0",
+  sha256: "95a534718f116b5a0e7fd1133ca840a6f3fbcbadf71785793b91135b925d002c",
+} as const;
 
 export type PlatformId = "android" | "apk" | "ios" | "web" | "huawei" | "samsung";
 
